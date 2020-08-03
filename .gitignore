@@ -1,0 +1,11 @@
+/vendor/
+/.idea/.gitignore
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
+/.idea/dataSources.xml
+/FirstCleanArchitecture
+/.idea/FirstCleanArchitecture.iml
+/.idea/watcherTasks.xml
+/static/
