@@ -18,7 +18,7 @@ func NewApplicationsUseCase(AR applications.ApplicationsRepository) *Application
 	}
 }
 
-func (r ApplicationsUseCase) GetApplication(ctx context.Context) (string, error) {
+func (r *ApplicationsUseCase) GetApplication(ctx context.Context) (string, error) {
 	//get application
 	app, err := r.AppsStorage.GetRandomAliveApplication(ctx)
 	if err != nil {
@@ -29,18 +29,23 @@ func (r ApplicationsUseCase) GetApplication(ctx context.Context) (string, error)
 	return app.Name, nil
 }
 
-func (r ApplicationsUseCase) GetAdminApplications(ctx context.Context) ([]string, error) {
+func (r *ApplicationsUseCase) GetAdminApplications(ctx context.Context) ([]string, error) {
 	// get applications
-	apps, err := r.AppsStorage.GetShowedAndCancelApplications(ctx)
+	Active, Cancel, err := r.AppsStorage.GetShowedAndCancelApplications(ctx)
 	if err != nil {
 		log.Error(err)
 		return []string{}, err
 	}
 
 	// crete slice rez
-	var rez []string
-	for _, app := range apps {
-		rez = append(rez, app.Name+"-"+strconv.Itoa(app.Count))
+	rez := make([]string, 0)
+
+	for _, app := range Active {
+		rez = append(rez, "Active("+app.Name+"-"+strconv.Itoa(app.Count)+")")
+	}
+
+	for _, app := range Cancel {
+		rez = append(rez, "Cancel("+app.Name+"-"+strconv.Itoa(app.Count)+")")
 	}
 
 	return rez, nil
