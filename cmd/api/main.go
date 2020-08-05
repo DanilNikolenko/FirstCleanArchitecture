@@ -1,8 +1,8 @@
 package main
 
 import (
-	"ProjectCleanArchitecture/FirstCleanArchitecture/config"
-	"ProjectCleanArchitecture/FirstCleanArchitecture/server"
+	"FirstCleanArchitecture/config"
+	"FirstCleanArchitecture/server"
 	"log"
 
 	"github.com/spf13/viper"

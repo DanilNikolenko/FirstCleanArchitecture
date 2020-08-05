@@ -1,10 +1,10 @@
 package server
 
 import (
-	"ProjectCleanArchitecture/FirstCleanArchitecture/applications"
-	appHTTP "ProjectCleanArchitecture/FirstCleanArchitecture/applications/delivery/http"
-	"ProjectCleanArchitecture/FirstCleanArchitecture/applications/repository/storage"
-	"ProjectCleanArchitecture/FirstCleanArchitecture/applications/usecase"
+	"FirstCleanArchitecture/applications"
+	appHTTP "FirstCleanArchitecture/applications/delivery/http"
+	"FirstCleanArchitecture/applications/repository/storage"
+	"FirstCleanArchitecture/applications/usecase"
 
 	"github.com/labstack/gommon/log"
 

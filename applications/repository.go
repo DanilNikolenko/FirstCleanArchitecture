@@ -1,7 +1,7 @@
 package applications
 
 import (
-	"ProjectCleanArchitecture/FirstCleanArchitecture/models"
+	"FirstCleanArchitecture/models"
 	"context"
 )
 

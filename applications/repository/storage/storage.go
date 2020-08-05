@@ -1,7 +1,7 @@
 package storage
 
 import (
-	"ProjectCleanArchitecture/FirstCleanArchitecture/models"
+	"FirstCleanArchitecture/models"
 	"context"
 	"math/rand"
 	"sync"

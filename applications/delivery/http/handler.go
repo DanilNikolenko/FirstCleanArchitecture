@@ -1,7 +1,7 @@
 package http
 
 import (
-	"ProjectCleanArchitecture/FirstCleanArchitecture/applications"
+	"FirstCleanArchitecture/applications"
 	"context"
 	"fmt"
 	"net/http"

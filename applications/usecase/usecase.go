@@ -1,7 +1,7 @@
 package usecase
 
 import (
-	"ProjectCleanArchitecture/FirstCleanArchitecture/applications"
+	"FirstCleanArchitecture/applications"
 	"context"
 	"strconv"
 
