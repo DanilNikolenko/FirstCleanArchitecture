@@ -14,16 +14,45 @@
   revision = "f65c72e2690dc4b403c8bd637baf4611cd4c069b"
 
 [[projects]]
+  name = "github.com/aws/aws-sdk-go"
+  packages = ["aws","aws/awserr","aws/awsutil","aws/client/metadata","aws/credentials","aws/endpoints","aws/request","aws/signer/v4","internal/context","internal/ini","internal/sdkio","internal/sdkmath","internal/shareddefaults","internal/strings","internal/sync/singleflight","private/protocol","private/protocol/rest"]
+  revision = "b81ccaa4457c6fdfff7ef96d169f7e7fa64a4a4f"
+  version = "v1.34.4"
+
+[[projects]]
   name = "github.com/fsnotify/fsnotify"
   packages = ["."]
   revision = "45d7d09e39ef4ac08d493309fa031790c15bfe8a"
   version = "v1.4.9"
 
 [[projects]]
+  name = "github.com/go-stack/stack"
+  packages = ["."]
+  revision = "2fee6af1a9795aafbe0253a0cfbdf668e1fb8a9a"
+  version = "v1.8.0"
+
+[[projects]]
+  name = "github.com/golang/snappy"
+  packages = ["."]
+  revision = "2a8bb927dd31d8daada140a5d09578521ce5c36a"
+  version = "v0.0.1"
+
+[[projects]]
   name = "github.com/hashicorp/hcl"
   packages = [".","hcl/ast","hcl/parser","hcl/printer","hcl/scanner","hcl/strconv","hcl/token","json/parser","json/scanner","json/token"]
   revision = "8cb6e5b959231cc1119e43259c4a608f9c51a241"
   version = "v1.0.0"
+
+[[projects]]
+  name = "github.com/jmespath/go-jmespath"
+  packages = ["."]
+  revision = "c2b33e84"
+
+[[projects]]
+  name = "github.com/klauspost/compress"
+  packages = ["fse","huff0","snappy","zstd","zstd/internal/xxhash"]
+  revision = "e0319150c61f7f25672c963b38547246a11a7f08"
+  version = "v1.10.11"
 
 [[projects]]
   name = "github.com/konsorten/go-windows-terminal-sequences"
@@ -66,6 +95,12 @@
   packages = ["."]
   revision = "16c9a8bdc086a2130a88eff98df4088e4c359bb2"
   version = "v1.8.0"
+
+[[projects]]
+  name = "github.com/pkg/errors"
+  packages = ["."]
+  revision = "614d223910a179a466c1767a985424175c39b465"
+  version = "v0.9.1"
 
 [[projects]]
   name = "github.com/prometheus/common"
@@ -129,6 +164,36 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/xdg/scram"
+  packages = ["."]
+  revision = "7eeb5667e42c09cb51bf7b7c28aea8c56767da90"
+
+[[projects]]
+  name = "github.com/xdg/stringprep"
+  packages = ["."]
+  revision = "bd625b8dc1e3b0f57412280ccbcc317f0c69d8db"
+  version = "v1.0.0"
+
+[[projects]]
+  name = "go.mongodb.org/mongo-driver"
+  packages = ["bson","bson/bsoncodec","bson/bsonoptions","bson/bsonrw","bson/bsontype","bson/primitive","event","internal","mongo","mongo/options","mongo/readconcern","mongo/readpref","mongo/writeconcern","tag","version","x/bsonx","x/bsonx/bsoncore","x/mongo/driver","x/mongo/driver/address","x/mongo/driver/auth","x/mongo/driver/auth/internal/gssapi","x/mongo/driver/connstring","x/mongo/driver/description","x/mongo/driver/dns","x/mongo/driver/mongocrypt","x/mongo/driver/mongocrypt/options","x/mongo/driver/ocsp","x/mongo/driver/operation","x/mongo/driver/session","x/mongo/driver/topology","x/mongo/driver/uuid","x/mongo/driver/wiremessage"]
+  revision = "f10b4198e74067ceb15c68889c34a2cb4817d766"
+  version = "v1.4.0"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/crypto"
+  packages = ["ocsp","pbkdf2"]
+  revision = "123391ffb6de907695e1066dc40c1ff09322aeb6"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/sync"
+  packages = ["errgroup","semaphore"]
+  revision = "6e8e738ad208923de99951fe0b48239bfd864f28"
+
+[[projects]]
+  branch = "master"
   name = "golang.org/x/sys"
   packages = ["internal/unsafeheader","unix","windows","windows/registry","windows/svc/eventlog"]
   revision = "3e129f6d46b10b0e1da36b3deffcb55e09631b64"
@@ -160,6 +225,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "a22ab3a6bbca7d380425f432ea79c40548b8d251e61010594971ca6e1a84e2e3"
+  inputs-digest = "65bd7ce103b973fe39f3ae6646521a7b290de03051d93e4e6b6629e21c1bc903"
   solver-name = "gps-cdcl"
   solver-version = 1

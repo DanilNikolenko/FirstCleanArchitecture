@@ -2,17 +2,12 @@ package storage
 
 import (
 	"FirstCleanArchitecture/models"
+	"FirstCleanArchitecture/services"
 	"context"
-	"math/rand"
 	"sync"
 	"time"
 
 	"github.com/spf13/viper"
-)
-
-const (
-	MIN = 97
-	MAX = 122
 )
 
 type ApplicationsStorage struct {
@@ -33,7 +28,7 @@ func NewApplicationsRepository() *ApplicationsStorage {
 	// generate 50 active app
 	for i := 0; i < MaxCount; i++ {
 		tempApp := models.Application{
-			Name:  GetApplicationRandomNAme(),
+			Name:  services.GetApplicationRandomNAme(),
 			Count: 0,
 		}
 
@@ -55,7 +50,7 @@ func NewApplicationsRepository() *ApplicationsStorage {
 
 func (r *ApplicationsStorage) refreshAvailableAppPool() {
 	// get random
-	randINT := random(0, viper.GetInt("maxApps")-1)
+	randINT := services.Random(0, viper.GetInt("maxApps")-1)
 
 	// add to cancel if it have >0 count shows
 	r.mu.Lock()
@@ -70,7 +65,7 @@ func (r *ApplicationsStorage) refreshAvailableAppPool() {
 
 	// add new app instead old
 	tempApp := models.Application{
-		Name:  GetApplicationRandomNAme(),
+		Name:  services.GetApplicationRandomNAme(),
 		Count: 0,
 	}
 
@@ -102,35 +97,10 @@ func (r *ApplicationsStorage) GetRandomAliveApplication(ctx context.Context) (mo
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
-	randINT := random(0, viper.GetInt("maxApps")-1)
+	randINT := services.Random(0, viper.GetInt("maxApps")-1)
 
 	r.active[randINT].Count++
 	rez := *r.active[randINT]
 
 	return rez, nil
-}
-
-// =====================
-
-func GetNewApplication() *models.Application {
-	AppName := GetApplicationRandomNAme()
-	return &models.Application{
-		Name:  AppName,
-		Count: 0,
-	}
-}
-
-func GetApplicationRandomNAme() string {
-	var name string
-	for i := 0; i < 2; i++ {
-		TempRand := random(MIN, MAX)
-		name += string(byte(TempRand))
-	}
-
-	return name
-}
-
-func random(min, max int) int {
-	rand.Seed(time.Now().UnixNano())
-	return rand.Intn(max-min) + min
 }

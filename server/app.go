@@ -3,9 +3,11 @@ package server
 import (
 	"FirstCleanArchitecture/applications"
 	appHTTP "FirstCleanArchitecture/applications/delivery/http"
-	"FirstCleanArchitecture/applications/repository/storage"
-	"FirstCleanArchitecture/applications/usecase"
+	"FirstCleanArchitecture/services"
 
+	//"FirstCleanArchitecture/applications/repository/storage"
+	"FirstCleanArchitecture/applications/repository/mongodb"
+	"FirstCleanArchitecture/applications/usecase"
 	"github.com/labstack/gommon/log"
 
 	"fmt"
@@ -19,7 +21,10 @@ type App struct {
 }
 
 func NewApp() *App {
-	app := storage.NewApplicationsRepository()
+	conn := services.ConnToMongo()
+	app := mongodb.NewMongoRepository(conn, "test", "active", "cancel")
+
+	//app := storage.NewApplicationsRepository()
 	return &App{
 		ApplicationsUC: usecase.NewApplicationsUseCase(app),
 	}
